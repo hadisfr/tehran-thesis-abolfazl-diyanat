@@ -1,0 +1,53 @@
+%%%%%%%%%%%
+% آوردن مراجع در انتهای گزارش با فرمت IEEE 
+% فرمت مراجع می تواند برای ACM و ... نیز باشد. برای این کار کافی است تنها 
+%پارامتر style را باید تغییر دهید. 
+\baselineskip=.65cm
+
+% مراجع همگی در یک فایل bibtex با پسوند .bib  وجود دارد، که می بایست در پوشه اصلی گزارش قرار داده شود.
+% نام این فایل می بایست library باشد. در غیر این صورت باید نام فایل bib را در خط زیر تغییر دهید. 
+%\renewcommand{\bibname}{مراجع}
+\clearpage
+\phantomsection
+%\addcontentsline{toc}{chapter}{کتاب نامه}
+\bibliographystyle{plain-fa}%{persia}
+\bibliography{library}
+
+
+
+
+%%%%%%%%%%
+\baselineskip=.75cm
+\glossarystyle{mylist1}
+\clearpage
+\phantomsection
+\def\glossaryname{واژه نامه فارسی به انگلیسی}
+\addcontentsline{toc}{chapter}{\glossaryname}
+\printglossary[title={ \glossaryname}]
+
+% قرار دادن واژه نامه انگلیسی به فارسی
+
+\begin{LTR}
+\def\glossaryname{\rl{واژه نامه انگلیسی به فارسی}}
+%\addcontentsline{toc}{chapter}{\glossaryname}
+\begin{LTR}
+\printglossary[type={mylist1},title={\begin{center} \glossaryname \end{center}}]
+\end{LTR}
+\end{LTR}
+
+
+
+%%%%%%%%%%
+% قرار دادن نمایه کلمات به عنوان آخرین قسمت گزارش
+\baselineskip=.75cm
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{نمایه}
+\printindex
+
+
+
+\input{Chapters/abstract_en}
+\clearpage
+\input{Chapters/cover_en}
+

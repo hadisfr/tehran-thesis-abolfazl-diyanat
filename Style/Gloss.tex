@@ -1,0 +1,242 @@
+%%% Data: 2013/04/15    Time: 20:27:46 
+%%% تعاریف مربوط به تولید واژه نامه و فهرست اختصارات و فهرست نمادها
+%%%  در این فایل یکسری دستورات عمومی برای وارد کردن واژه‌نامه آمده است.
+%%%  به دلیل این‌که قرار است این دستورات پایه‌ای را بازنویسی کنیم در این‌جا تعریف می‌کنیم. 
+\makeatletter
+\let\oldgls\gls
+\let\oldGls\Gls
+\let\oldglspl\glspl
+\let\oldsglspl\sglspl
+\let\oldGlspl\Glspl
+\let\oldglsuseri\glsuseri
+\let\Oldprintglossary\printglossary
+\let\oldnewglossaryentry\newglossaryentry
+
+%%% تعریف استایل برای واژه نامه فارسی به انگلیسی، در این استایل واژه‌های فارسی در سمت راست و واژه‌های انگلیسی در سمت چپ خواهند آمد. از حالت گروه ‌بندی استفاده می‌کنیم، 
+%%% یعنی واژه‌ها در گروه‌هایی به ترتیب حروف الفبا مرتب می‌شوند، مثلا:
+%%% الف
+%%% افتصاد ................................... Economy
+%%% اشکال ........................................ Failure
+%%% ش
+%%% شبکه ...................................... Network
+\newglossarystyle{mylistFa}{
+	\glossarystyle{list}
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glossaryheader}{}
+%%% این دستور یدر حقیقت عملیات گروه‌بندی را انجام می‌دهد. بدین صورت که واژه‌ها در بخش‌های جداگانه گروه‌بندی می‌شوند، 
+%%%عنوان بخش همان نام حرفی است که هر واژه در آن گروه با آن شروع شده است. 	
+	\renewcommand*{\glsgroupheading}[1]{\vskip 12mm\section*{  \glsgetgrouptitle{##1}} }
+	\renewcommand*{\glsgroupskip}{}
+%%% در این دستورر نحوه نمایش واژه‌ها می‌آید. در این جا واژه فارسی در سمت راست و واژه انگلیسی در سمت چپ قرار داده شده است، و بین آن با نقطه پر می‌شود. 
+	\renewcommand*{\glossaryentryfield}[5]     {\noindent \Glsentryname{##1} \dotfill \space \Glsentryplural{##1} \vskip 0mm}
+	\renewcommand*{\glossarysubentryfield}[6]{\glossaryentryfield{##2}{##3}{##4}{##5}{##6}}
+}%
+
+%% % تعریف استایل برای واژه نامه انگلیسی به فارسی، در این استایل واژه‌های فارسی در سمت راست و واژه‌های انگلیسی در سمت چپ خواهند آمد. از حالت گروه ‌بندی استفاده می‌کنیم، 
+%% % یعنی واژه‌ها در گروه‌هایی به ترتیب حروف الفبا مرتب می‌شوند، مثلا:
+%% % E
+%%% Economy ............................... اقتصاد
+%% % F
+%% % Failure................................... اشکال
+%% %N
+%% % Network ................................. شبکه
+
+\newglossarystyle{mylistEn}{
+	\glossarystyle{list}
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glossaryheader}{}
+%%% این دستور یدر حقیقت عملیات گروه‌بندی را انجام می‌دهد. بدین صورت که واژه‌ها در بخش‌های جداگانه گروه‌بندی می‌شوند، 
+%%% عنوان بخش همان نام حرفی است که هر واژه در آن گروه با آن شروع شده است. 	
+	\renewcommand*{\glsgroupheading}[1]{\vskip 12mm\begin{LTR} \section*{\lr{\glsgetgrouptitle{##1}}} \end{LTR}}
+	\renewcommand*{\glsgroupskip}{}
+%%% در این دستورر نحوه نمایش واژه‌ها می‌آید. در این جا واژه فارسی در سمت راست و واژه انگلیسی در سمت چپ قرار داده شده است، و بین آن با نقطه پر می‌شود. 
+	\renewcommand*{\glossaryentryfield}[5] {\noindent \Glsentryplural{##1}  \dotfill \space  \Glsentryname{##1} \vskip 0mm}
+	\renewcommand*{\glossarysubentryfield}[6]{\glossaryentryfield{##2}{##3}{##4}{##5}{##6}}
+}%
+
+
+
+%%% تعریف استایل برای فهرست اختصارات، در این استایل واژه‌های بازشده واژه مختصر در سمت راست و واژه‌های انگلیسی اختصاری در سمت چپ خواهند آمد. از حالت گروه ‌بندی استفاده می‌کنیم، 
+%%% یعنی واژه‌ها در گروه‌هایی به ترتیب حروف الفبا مرتب می‌شوند.
+%% % F
+%% % FDM................................... Frequency Division Multiplexing 
+%% %T
+%% % TDM ................................. Time Division Multiplexing
+
+\newglossarystyle{mylistAbbr}{
+	\glossarystyle{list}
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glossaryheader}{}
+	\renewcommand*{\glsgroupheading}[1]{\vskip 10mm\begin{LTR} \section*{\lr{\glsgetgrouptitle{##1}}} \end{LTR}}
+	\renewcommand*{\glsgroupskip}{}
+	\renewcommand*{\glossaryentryfield}[5]     {\noindent \glsentryplural{##1}  \dotfill \space  \Glsentryname{##1}  \vskip 0mm}
+	\renewcommand*{\glossarysubentryfield}[6]{\glossaryentryfield{##2}{##3}{##4}{##5}{##6}}
+}%
+
+
+%%% تعریف استایل برای فهرست نمادها، در این استایل ابتدا نام نماد و سپس در کنا آن توضیح نماد خواهد آمد
+%%% مثلا: N تعداد گره های شبکه 
+\newglossarystyle{mylistNotation}{
+	\glossarystyle{list}
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glossaryheader}{}
+	\renewcommand*{\glsgroupheading}[1]{}
+	\renewcommand*{\glsgroupskip}{}
+	\renewcommand*{\glossaryentryfield}[5]     {\noindent \glsentrysymbol{##1} \glsentrydesc{##1} \vskip 0mm}
+	\renewcommand*{\glossarysubentryfield}[6]{\glossaryentryfield{##2}{##3}{##4}{##5}{##6}}
+}%
+
+
+\newglossarystyle{mylistFasubsec}{
+	\glossarystyle{list}
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glossaryheader}{}
+	\renewcommand*{\glsgroupheading}[1]{\vskip 12mm\subsection*{  \glsgetgrouptitle{##1}} }
+	\renewcommand*{\glsgroupskip}{}
+	\renewcommand*{\glossaryentryfield}[5]     {\noindent \Glsentryname{##1} \dotfill \space \Glsentryplural{##1} \vskip 0mm}
+	\renewcommand*{\glossarysubentryfield}[6]{\glossaryentryfield{##2}{##3}{##4}{##5}{##6}}
+}%
+
+
+\newglossarystyle{mylistEnsubsec}{
+	\glossarystyle{list}
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glossaryheader}{}	
+	\renewcommand*{\glsgroupheading}[1]{\vskip 12mm\begin{LTR} \subsection*{\lr{\glsgetgrouptitle{##1}}} \end{LTR}}
+	\renewcommand*{\glsgroupskip}{}
+	\renewcommand*{\glossaryentryfield}[5] {\noindent \Glsentryplural{##1}  \dotfill \space  \Glsentryname{##1} \vskip 0mm}
+	\renewcommand*{\glossarysubentryfield}[6]{\glossaryentryfield{##2}{##3}{##4}{##5}{##6}}
+}%
+
+\newglossarystyle{mylistAbbrsubsec}{
+	\glossarystyle{list}
+	\renewenvironment{theglossary}{}{}
+	\renewcommand*{\glossaryheader}{}
+	\renewcommand*{\glsgroupheading}[1]{\vskip 10mm\begin{LTR} \subsection*{\lr{\glsgetgrouptitle{##1}}} \end{LTR}}
+	\renewcommand*{\glsgroupskip}{}
+	\renewcommand*{\glossaryentryfield}[5]     {\noindent \glsentryplural{##1}  \dotfill \space  \Glsentryname{##1}  \vskip 0mm}
+	\renewcommand*{\glossarysubentryfield}[6]{\glossaryentryfield{##2}{##3}{##4}{##5}{##6}}
+}%
+
+
+
+%%% برای اجرا xindy بر روی فایل .tex و تولید واژه‌نامه‌ها و فهرست اختصارات و فهرست نمادها یکسری  فایل تعریف شده است.‌ Latex داده های مربوط به واژه نامه و .. را در این 
+%%%  فایل‌ها نگهداری می‌کند. مهم‌ترین option‌ این قسمت این است که 
+%%% عنوان واژه‌نامه‌ها و یا فهرست اختصارات و یا فهرست نمادها را می‌توانید در این‌جا مشخص کنید. 
+%%% در این جا عباراتی مثل glg، gls، glo و ... پسوند فایل‌هایی است که برای xindy بکار می‌روند. 
+\newglossary[glg]{english}{gls}{glo}{واژه‌نامه انگلیسی به فارسی}
+\newglossary[blg]{persian}{bls}{blo}{واژه‌نامه فارسی به انگلیسی}
+\newglossary[alg]{abrr}{acr}{acn}{فهرست اختصارات}
+\newglossary[nlg]{symbols}{not}{ntn}{فهرست نمادها}
+%\newglossary[alg2]{tem}{acr2}{acn2}{موقت}
+
+
+%%% باز تعریف محیط newacronym برای فهرست اختصارات
+\renewcommand{\newacronym}[4]{
+	\oldnewglossaryentry{#1}{type = abrr,  name={\lr{#2}} ,plural={\lr{#3}} , description = {}}
+}%
+
+%%% باز تعریف محیط newnotation برای فهرست نمادها
+\newcommand{\newnotation}[3]{
+	\oldnewglossaryentry{#1}{type = symbols,  name={#1} ,plural={#1} , description = {#3},symbol={\lr{#2} }}
+}%
+
+
+%% توسط این دستور محیط newglossaryentry را بازنویسی می‌ کنیم. شما یک واژه به صورت زیر در واژه‌نامه وارد می‌کنید:
+%%\newglossaryentry{Fading}
+%%{name={Fading}, 
+%%plural={محوشدگی},
+%%description={}
+%%}
+%% با بازنویسی این دستور ما با هر بار فراخوانی newglossaryentry دو newglossaryentry با type های مختلف فراخوانی می‌شود، چرا که ما دو واژه‌نامه داریم. 
+%\def \myMacro{RRR}
+\def\@plpl{plural}
+\renewcommand{\newglossaryentry}[2]{%
+	\setkeys{glossentry}{#2}%
+	\let\thename\@glo@name
+	\let\theplural\@glo@plural
+	\let\thedesc\@glo@desc
+	\ifx\@glo@type\@plpl
+		\oldnewglossaryentry{#1}{name={\lr{\thename}} ,plural={\theplural} , description = {\thedesc}}
+	\else
+		\oldnewglossaryentry{fa-#1}{type = persian,  name={\theplural},  plural={\lr{\thename}} , description={\thedesc}}
+		\oldnewglossaryentry{#1}{type = english,  name={\lr{\thename}} ,plural={\theplural} , description = {\thedesc}}	
+	\fi	
+}%
+
+\makeglossaries
+\glsdisablehyper
+\makeindex
+
+%%% با دستورات زیر نحوه گذاشتن واژه در متن مشخص می‌شود. 
+\renewcommand*{\SetCustomDisplayStyle}[1]{%
+%%% این دستور مشخص می‌کند که برای اولین بار که واژه در متن ظاهر می شود چه اتفاقی بیافتد. مثلا در این‌جا تعریف شده است که برای اولین بار معادل انگلیسی پاورقی شود. 
+	\defglsdisplayfirst[#1]{##1\protect\hspace{-.1em}\LTRfootnote{\Glsentryname{\glslabel} }}
+%%% این دستور مشخص می‌کند که بار دوم و سوم و ... که واژه در متن ظاهر می شود چه اتفاقی بیافتد. مثلا در این‌جا تعریف شده است که اتفاق خاصی نیافتد. 
+	\defglsdisplay[#1]{##1}%
+}%
+%%% این دستور می‌گوید که استایلی که در بالا برای نحوه قرار گرفتن واژه‌ها در متن بیان شد، به چه type از واژه‌هایی اعمال شود. 
+\SetCustomDisplayStyle{english}
+
+%%% همان مواردی که در بالا اشاره شد، اما این بار برای type واژگان اختصاری
+\renewcommand*{\SetCustomDisplayStyle}[1]{%
+	\defglsdisplayfirst[#1]{\lr{##1\protect\LTRfootnote{\Glsentryplural{\glslabel} }}}
+	\defglsdisplay[#1]{##1}%
+}
+%%% این دستور می‌گوید که استایلی که در بالا برای نحوه قرار گرفتن واژه‌ها در متن بیان شد، به چه type از واژه‌هایی اعمال شود. 
+\SetCustomDisplayStyle{abrr}
+
+%%% توسط این دستور واژه مورد نظر در متن، هر دو واژه نامه و پاورقی می آید.
+%%%  این دستور برای مواردی استفاده می‌شود که واژه‌ها را در فایل
+%%% واژه‌نامه (\begin{document}) وارد نکرده‌ایم، و می‌خواهیم در متن هم واژه‌ها را وارد کنیم و هم پاورقی کنیم. 
+\newcommand{\inpdic}[2]{\newglossaryentry{#2}{name={#2}, plural={#1},description = {}}\glsplp{#2}}
+
+%%% توسط این دستور واژه مورد نظر در متن، هر دو واژه نامه  می آید.
+ %%%  این دستور برای مواردی استفاده می‌شود که واژه‌ها را در فایل
+%%% واژه‌نامه (\begin{document}) وارد نکرده‌ایم، و می‌خواهیم در متن هم واژه‌ها را وارد کنیم ولی در پاورقی وارد نمی‌کند. 
+\newcommand{\indic}[2]{\newglossaryentry{#2}{name={#2}, plural={#1},description = {} }\glspl{#2}}
+
+%%% توسط این دستور واژه مورد نظر در متن، هر دو واژه نامه  می آید.
+ %%%  این دستور برای مواردی استفاده می‌شود که واژه‌ها را در فایل
+%%% واژه‌نامه (\begin{document}) وارد نکرده‌ایم، با این دستور نه واژه‌ها وارد متن می‌شود و نه در پاورقی می‌آید. 
+\newcommand{\ingls}[2]{\newglossaryentry{#2}{name={#2}, plural={#1},description = {} }\glsuseri{#2}}
+%%% توسط این دستور اختصارات مورد نظر در متن، در فهرست اختصارات می‌آید. 
+ %%%  این دستور برای مواردی استفاده می‌شود که اختصارات‌ را در فایل
+%%% ‌اختصارات قبل از \begin{document} وارد نکرده‌ایم،
+%% توسط این دستور می‌توانید در داخل متن یک واژه به عنوان اختصارات وارد کنیم. با این دستور هم اختصار وارد متن می‌شود، هم پاورقی و هم به فهرست اختصارات اضافه می‌شود. 
+\newcommand{\inpabr}[2]{\oldnewglossaryentry{#1}{type = abrr,  name={\lr{#1}} ,plural={\lr{#2}} , description = {}}\oldgls{#1}\LTRfootnote{#2}}
+
+%%% توسط این دستور اختصارات مورد نظر در متن، در فهرست اختصارات می‌آید. 
+ %%%  این دستور برای مواردی استفاده می‌شود که اختصارات‌ را در فایل
+%%% ‌اختصارات قبل از \begin{document} وارد نکرده‌ایم،
+%% توسط این دستور می‌توانید در داخل متن یک واژه به عنوان اختصارات وارد کنیم. با این دستور هم اختصار وارد متن می‌شود،  به فهرست اختصارات اضافه می‌شود. ولی پاورقی نمی‌شود. 
+\newcommand{\inabr}[2]{\oldnewglossaryentry{#1}{type = abrr,  name={\lr{#1}} ,plural={\lr{#2}} , description = {}}\oldgls{#1}}
+
+
+%%% بازتعریف برخی از دستورات استاندارد بسته glossaries به منظور استفاده در متن. 
+%%% این دستور برای زمانی است که واژه ها، اختصارات و نمادها را در یک فایل جداگانه تعریف کرده باشیم. 
+
+
+\renewrobustcmd*{\glspl}{\@ifstar\@msglspl\@mglspl}
+\newcommand*{\@mglspl}[1] {\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\oldglspl{#1}\oldglsuseri{fa-#1}}{\oldglspl{#1}}}
+\newcommand*{\@msglspl}[1]{\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\glsentryplural{#1}\oldglsuseri{#1}\oldglsuseri{fa-#1}}{\oldglspl{#1}}}
+
+\renewrobustcmd*{\gls}{\@ifstar\@msgls\@mgls}
+\newcommand*{\@mgls}[1] {\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\oldgls{#1}\oldglsuseri{fa-#1}}{\oldgls{#1}}}
+\newcommand*{\@msgls}[1]{\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\glsentryname{#1}\oldglsuseri{#1}\oldglsuseri{fa-#1}}{\glsentryname{#1}\oldglsuseri{#1}}}
+
+\renewrobustcmd*{\glsuseri}{\@ifstar\@msglsuseri\@mglsuseri}
+\newcommand*{\@msglsuseri}[1] {\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\oldglsuseri{#1}\oldglsuseri{fa-#1}}{\oldglsuseri{#1}}}
+\newcommand*{\@mglsuseri}[1]   {\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\oldglsuseri{#1}\oldglsuseri{fa-#1}}{\oldglsuseri{#1}}} 
+
+\newcommand{\glsplp}[1]{\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\glsentryname{fa-#1}\hspace{-.1em}\LTRfootnote{\Glsentryname{#1}}\oldglsuseri{#1}}{\ifthenelse{\equal{\glsentrytype{#1}}{abrr}}{\glsentryplural{#1}}{\glsentryplural{#1}\hspace{-.1em}\LTRfootnote{\Glsentryname{#1}}}}}%
+
+\newcommand{\glsp}[1]{\ifthenelse{\equal{\glsentrytype{#1}}{english}}{\glsentryname{#1}\footnote{\glsentryplural{#1}}\oldglsuseri{fa-#1}}{\ifthenelse{\equal{\glsentrytype{#1}}{abrr}}{\lr{\glsentryname{#1}\LTRfootnote{\glsentryplural{#1}}}}{\ifthenelse{\equal{\glsentrytype{#1}}{symbols}}{\oldglsuseri{#1}\footnote{\glsentryplural{#1}}\glsentrysymbol{#1}}{}}}}%
+
+
+\newcommand{\glsabr}[1]{\gls{#1}} 
+\newcommand{\glsno}[1]{\oldglsuseri{#1}\glsentrysymbol{#1}}
+
+\makeatother
+
+

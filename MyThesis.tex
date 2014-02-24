@@ -1,0 +1,88 @@
+\documentclass{Style/Boostan-ThesisR}
+
+% تعیین عنوان پروژه
+\title{
+شبکه‌های اقتضایي و کاربردهای }
+% نام نویسنده
+\author{حسن احمدی}
+% تعیین تاریخ ارایه پروژه 
+\date{مهر ۱۳۹۲}
+%% استاد راهنما
+\supervisor{دکتر حسین محمدی}
+
+\adviser{دکتر حسن ابراهیمی}
+
+\institute{دانشگاه تهران}
+\faculity{پردیس دانشکده فنی}
+\group{دانشکده برق و کامپیوتر}
+
+\comment{کارشناسی ارشد}
+
+%\farsimajor{مهندسی کامپیوتر، گرایش هوش ماشین و رباتیک}
+
+\englishtitle{Hello Hello Wireless Ad Hoc Network In Vehicular Ad Hoc Network And Today Application Is}
+
+\englishAuthor{Hoessien Sys}
+
+\englishsupervisor{Dr. Ali Ali De}
+
+\englishadvisor{Dr. Ali Mohmmad Ehsan}
+
+\englishDate{Aug 2012}
+
+
+\input{./Chapters/abbre}
+\input{./Chapters/Words}
+
+\textwidthfootnoterule
+
+\begin{document}
+
+
+
+% صفحه بسم‌الله، فایل god در پوشه Pic قرار دارد. 
+\Godpage{Pic/god}
+% صفحه عنوان فارسی، با دو لوگو هر دو لوگو در پوشه Pic وجود دارد. 
+\thesisStyleOO
+% صفحه امضا
+\input{Chapters/sign}
+% صفحه تعهدنامه
+\input{Chapters/taahod}
+% صفحه مناجات
+\input{Chapters/monajat}
+% صفحه تشکر و قدردانی
+\input{Chapters/thanks}
+% صفحه چکیده مطالب
+\input{Chapters/abstract_fa}
+% وارد کردن فهرست مطالب
+\tableofcontents
+% وارد کردن فهرست تصاویر
+\listoffigures
+% وارد کردن فهرست جداول
+\listoftables
+% وارد کردن فهرست اختصارات
+
+
+
+% محتوی اصلی پایان نامه
+\input{Chapters/chapter2-review}
+\input{Chapters/insertAbrr}
+\input{Chapters/insertVajenameh}
+\input{Chapters/insertRefer}
+\input{Chapters/insertCode}
+%\input{Chapters/Endpages}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+% وارد کردن مراجع، به عنوان آرگومان ورودی کافی است که نام فایل با پسوند .bib را بدهید. 
+\bibliography{library}
+% برای تولید هر دو واژه‌نامه کافی است دستور زیر را وارد کنید. 
+\printglossary
+% برای تولید نمایه کافی است که دستور زیر استفاده کنید، و درون متن نیز کلمه‌ای را که می‌خواهد در نمایه بیاید با دستور \index{} مشخص کنید. 
+\printindex
+
+%\input{Chapters/abstract_en}
+
+\englishcover
+
+\end{document}

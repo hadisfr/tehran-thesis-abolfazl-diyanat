@@ -1,0 +1,42 @@
+\chapter{وارد کردن واژه‌نامه}
+
+در ابتدا بسته {\lr{glossaries}} را با {\lr{option}}، {\lr{Xindy}} فراخوانی کنید. در مرحله بعد دو استایل برای واژه نامه ها با دستور {\lr{newglossarystyle}} تعریف نموده ایم. یکی برای واژه نامه فارسی به انگلیسی یکی هم برای انگلیسی به فارسی. 
+
+در مرحله سوم دو نوع واژه نامه بادستور {\lr{newglossary}} تعریف می کنیم. دقت کنید با این کار ۵ فایل با پسوند {\lr{blo,glo,gls,glo,glg}} تولید می شود.
+
+در فایل ‎\lr{Words}‎ در پوشه ‎\lr{Chapters}‎، شما می‌توانید واژه ها خود را تعریف کنید. اگر فایل مورد نظر را مشاهده کنید، می بینید که مثلا من یک کلمه به نام ‎\lr{Absorption}‎ به معنی جذب تعریف کرده‌ام. اکنون کافی است که شما هرجای متن که می خواهید کلمه جذب ظاهر شود بنویسید (به این قسمت در فایل ‎\lr{Tex}‎مراجعه کنید. )
+
+این یک مثال از \glspl{Absorption} است.
+
+این مورد نیز به مانند اختصارات، به صورت خودکار اولین جا پاورقی می خورد و در دو واژه نامه وارد و مرتب می شود، 
+
+
+مهم ترین مرحله کامپایل برنامه است که باید به صورت دنباله زیر باشد:
+\begin{itemize}
+\begin{LTRitems}
+\hand
+\verb+ xelatex -interaction=nonstopmode -synctex=-1 %.tex+
+\hand
+\verb+ xindy -L persian-variant1 -C utf8 -I xindy -M %.xdy -t %.glg -o %.gls %.glo +
+\hand
+\verb+ xindy -L persian-variant1 -C utf8 -I xindy -M %.xdy -t %.blg -o %.bls %.blo +
+\hand
+\verb+ xelatex -interaction=nonstopmode -synctex=-1 %.tex+
+\end{LTRitems}
+\end{itemize}
+به مانند اختصارات این دو دستور را در ‎\lr{Texstudio}‎‌خود معرفی کنید. 
+
+مثال‌هایی دیگر، به فایل ‎\lr{Tex}‎ نگاه کنید. 
+\glspl{AcceptableCell}
+
+\glspl{Accessibility}
+
+\glspl{AccessDomain}
+
+
+
+
+
+
+
+

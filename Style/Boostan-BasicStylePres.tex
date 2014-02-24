@@ -1,0 +1,253 @@
+%% Data: 2013/08/02    Time: 15:59:14 
+%% در مورد تقدم و تاخر وارد کردن بسته ها تنها باید به چند نکته دقت کرد:
+%% الف) بسته xepersian حتما حتما باید آخرین بسته ای باشد که فراخوانی می شود
+%% ب) بسته hyperref جزو آخرین بسته هایی باید باشد که فراخوانی می شود.
+%% ج) بسته glossaries حتما باید بعد از hyperref فراخوانی شود. 
+%% د) بسته listings باید حتما قبل از  hyperref فراخوانی شود. 
+
+
+%% تمام بسته های مورد نیاز برای ایجاد یک پایان نامه به صورت کامل اینجا آورده شده است در صورتی که بخواهید از بسته های دیگر استفاده کنید بهتر است که انها را به گونه ای انتخاب کنید که با این بسته ها تداخل نداشده باشد. نکته این که به نظر من استفاده از همین بسته ها کافی است.
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage{thmtools}
+\usepackage{dsfont}
+\usepackage{etoolbox}
+\usepackage{wasysym}
+
+%%% بسته‌ای برای  تولید نمایه در متن
+\usepackage{makeidx}
+\makeindex
+%% بسته‌ای برای وارد کردن سمبل فاز برای کارهای ریاضیاتی. این دستور به صورت \phase{H} در متن مورد استفاده قرار می‌گیرد. 
+\usepackage{steinmetz}
+
+%% برای تنظیم حاشیه صفحات
+\usepackage{geometry}
+
+\usepackage{empheq,fancybox}
+
+%% برای رنگی کردن متن و استفاده از رنگ در متن این دو بسته مورد نیاز است.
+\usepackage[usenames,dvipsnames]{color,xcolor}
+
+%% بسته ای برای وارد کردن Watermarking
+\usepackage{draftwatermark}
+
+%% بسته ای برای استفاده از اشکال برای آیتم‌ها
+\usepackage{pifont}
+\usepackage{marvosym}
+
+%%\usepackage{caption}
+%%\usepackage{subcaption}
+
+\usepackage{subfig}
+
+%% بسته ای برای این که در جدول یک متن را در چند سطر بیاوریم. 
+\usepackage{multirow}
+
+%% بسته‌ای برای رسم اشکال و تصاویر با Latex
+\usepackage{tikz,times}
+\usepackage{pstricks}
+\usepackage{tikz-qtree}
+%% برای ترسیم گانت چارت در گزارش و پیشنهاد پروژه
+\usepackage{pgfgantt}
+%% رسم یکسری تصاویر با Latex به مانند عکس یک پرنده
+\usepackage{eso-pic}
+\usepackage{pst-fun}
+%% بسته ای برای وارد کردن کدهای برنامه نویسی (MATLAB، JAVA و ...( در متن
+%% بارگذاری بسته listings باید قبل از hyperref باشد و گرنه با خطا مواجه خواهیم شد
+\usepackage{listings}
+
+%% بسته ای برای وارد کردن الگوریتم در متن
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+%% بسته‌ای برای رنگ آمیزی جداول
+\usepackage{colortbl}
+
+%% در این قالب از بسته graphx برای انجام کارهای گرافیکی استفاده می‌شود. این بسته برای اضافه کردن تصویرها به متن استفاده شده است.
+\usepackage{graphicx}
+
+%% بسته‌ای است که توسط آن می‌توان شماره صفحه و آخرین صفحه را استخراج نمود. 
+\usepackage{lastpage}
+
+\usepackage{pdfpages}
+
+%% دوبسته برای اضافه کردن دستورات if و else به برنامه.
+\usepackage{xparse}
+\usepackage{ifthen}
+
+%% بسته‌ای برای تنظیم فرمت استایل بخش‌ها، زیربخش‌ها و ... . 
+\usepackage{titlesec}
+
+%% بسته ای برای رنگی کردن لینک ها و فعال سازی لینک ها در یک نوشتار، بسته hyperref باید جزو آخرین بسته‌هایی باشد که فراخوانی می‌شود. 
+\usepackage{hyperref}
+
+%% بسته‌ای برای وارد کردن واژه نامه در متن، این بسته باید بعد از hyperref حتما صدا زده شود. 
+\usepackage[sanitize={name=false,description=false,sort=false,symbol=false},nomain,xindy,acronym,acronymlists={main,tem}]{glossaries}
+
+
+%%زی‌پرشین (به انگلیسی: XePersian) یک بسته حروف‌چینی رایگان و متن‌باز برای نگارش مستندات پارسی/انگلیسی با زی‌لاتک است.
+%% در واقع، زی‌پرشین، کمک می‌کند تا به آسانی، مستندات را به پارسی، حروف‌چینی کرد. این بسته را وفا خلیقی نوشته است،
+%% و به طور منظم، آن را بروز‌رسانی کرده و باگ‌های آن را رفع می‌کند.
+%% نکته مهم این جا است که بسته Xepersian برای پشتیبانی از زبان فارسی آورده شده است، و 
+%% می بایست آخرین بسته ای باشد که شما وارد می کنید، دقت کنید: آخرین بسته 
+
+\usepackage{xepersian}
+
+%%% OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+%% تعریف برخی محیط‌ها 
+\newenvironment{problem}{}{}
+\newenvironment{info}{}{}
+\newenvironment{refer}{}{}
+\newenvironment{warning}{}{}
+\newenvironment{goal}{}{}
+\newenvironment{note}{}{}
+\newenvironment{mydef}{}{}
+\newenvironment{myshadowbox}{}{}
+\newenvironment{colorBox}{}{}
+\newenvironment{lemmaproof}{}{}
+\newenvironment{mycomment}{}{}
+
+% تعریف برخی دستورات 
+\newcommand{\goodRef}{}
+\newcommand{\probsec}{}
+\newcommand{\idx}{}
+\newcommand{\arcm}{}
+\newcommand{\arcmO}{}
+\newcommand{\tick}{}
+\newcommand{\tickO}{}
+\newcommand{\X}{}
+\newcommand{\XO}{}
+\newcommand{\hand}{}
+\newcommand{\handO}{}
+\newcommand{\tree}{}
+\newcommand{\treeO}{}
+\newcommand{\two}{}
+\newcommand{\twoO}{}
+\newcommand{\sci}{}
+\newcommand{\sciO}{}
+\newcommand{\starE}{}
+\newcommand{\starEO}{}
+\newcommand{\music}{}
+\newcommand{\musicO}{}
+\newcommand{\gol}{}
+\newcommand{\golO}{}
+
+%%% تنظیم فاصله خطوط در متن اصلی
+\newlength{\baselineskipVar}
+%%% تنظیم فاصله خطوط در فهرست‌ها
+\newlength{\listlineskipVar}
+%%% تعریف فونت‌‌های پیش فرض برای متن
+\newcommand{\defaultFont}{}
+
+%% این متغیر برای استایل presentation مورد استفاده قرار می‌گیرد. در این استایل در صفحات اول سربرگ قرار داده نمی‌شود. این شمانده تعیین می‌کند که در چه صفحه‌ای سربرگ قرار داده شود. 
+\newcounter{setfirstpage}
+
+%%% OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+%%% تعریف یکسری دستور برای صفحه عنوان 
+
+%% توسط دستور \myData می توانید تاریخ و ساعت را وارد متن خود کنید. 
+\newcommand{\myData}{
+\شمارجدید\ساعت
+\شمارجدید\دقیقه
+\تر\زمان‌به‌وقت‌امروز{%
+\ساعت \زمان \تقسیم \ساعت 60  ساعت \محتوای\ساعت {}
+\دقیقه \زمان \ضرب \ساعت 60 \بیفزابر \دقیقه -\ساعت
+ \گرعدد\دقیقه=0\گرنه و \محتوای\دقیقه{} دقیقه\رگ }
+ \امروز{} در  \زمان‌به‌وقت‌امروز{} 
+} %M
+
+%%% تعریف یکسری متغیر برای صفحه عنوان مطالب
+\makeatletter
+\gdef\@type{نوع پروژه}
+\def\type#1{\gdef\@type{#1}}
+%% عنوان محصول را تعیین می‌کند. این عنواند در ایجاد عنوان در مستند استفاده
+%% می‌شود این عنوان در هر مستند باید ایجاد شود در غیر این صورت از عنوان
+%% پیشفرض استفاده خواهد شد.
+\gdef\@title{عنوان پروژه}
+\def\title#1{\gdef\@title{#1}}
+%% زیر عنوان یک متن ساده را تعیین می‌کند که یک هدف مهم محصول را تعیین می‌کند
+%% این عنوان می تواند برای یک محصول در نظر گرفته نشود. از این داده برای 
+%% ایجاد عنوان و سایر مکان های محصول استفاده می‌شود.
+\gdef\@subtitle{کاربرد محصول برای استفاده در زیر عنوان}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+%% افراد و گروه های که در تهیه این مستند و محصول همکاری داشته اند را تعیین
+%% می کند این داده همواره باید بیان شود. این داده در نوشتن عنوان و دیگر قسمت
+%% های مستند مورد استفاده قرار می‌گیرد.
+\gdef\@author{افراد و گروه‌های پدید آورنده}
+\def\author#1{\gdef\@author{#1}}
+%% تاریخ نهایی نوشتن مستند را تعیین می‌کند این تاریخ در نوشتن عنوان استفاده
+%% می‌شود این تارخ باید تعیین شود در غیر این صورت به صورت پیش فرض یک تاریخ
+%% برای آن استفاده می شود.
+\gdef\@date{ آخرین ویرایش: \myData}
+\def\date#1{\gdef\@date{#1}}
+
+\gdef\@supervisor{نام ناظر} 
+\def\supervisor#1{\gdef\@supervisor{#1}}
+
+\gdef\@adviser{نام استاد مشاور}
+\def\adviser#1{\gdef\@adviser{#1}}
+
+\gdef\@session{جلسه ارایه}
+\def\session#1{\gdef\@session{#1}}
+
+\gdef\@institute{پژوهشکده}
+\def\institute#1{\gdef\@institute{#1}}
+
+\gdef\@faculity{ نام دانشکده}
+\def\faculity#1{\gdef\@faculity{#1}}
+
+\gdef\@group{ نام گروه}
+\def\group#1{\gdef\@group{#1}}
+
+\gdef\@community{نام زیرگروه}
+\def\community#1{\gdef\@community{#1}}
+
+\gdef\@projectManager{پیشنهاد دهنده}
+\def\projectManager#1{\gdef\@projectManager{#1}}
+
+\gdef\@comment{}
+\def\comment#1{\gdef\@comment{#1}}
+
+\gdef\@version{اول}
+\def\version#1{\gdef\@version{#1}}
+% هر نسخه از یک پیشنهاد طرح ممکن است در طول زمان به روز شود. این شماره تعیین
+% می‌کند که این نسخه از پیشنهاد طرح چندتا به روز رسانی شده است.
+\gdef\@update{1}
+\def\update#1{\gdef\@update{#1}}
+
+\gdef\@startData{تاریخ شروع}
+\def\startData#1{\gdef\@startData{#1}}
+
+\gdef\@stopData{تاریخ اتمام}
+\def\stopData#1{\gdef\@stopData{#1}}
+
+\gdef\@executionTime{مدت زمان اجرای پروژه}
+\def\executionTime#1{\gdef\@executionTime{#1}}
+
+%%% نام فایلی لوگوی مورد استفاده در نوشتار توسط این پارامتر مشخص می‌شود. 
+\gdef\@logofile{logonotfound}
+\def\logofile#1{\gdef\@logofile{#1}}
+%%% اندازه فایل لوگوی موجود در متن توسط این پارامتر مشخص می‌شود.
+\gdef\@logoScale{.3\textwidth}
+\def\logoScale#1{\gdef\@logoScale{#1}}
+
+\gdef\@titleStyle{lshort}
+\def\titleStyle#1{\gdef\@titleStyle{#1}}
+
+\makeatother
+
+\newcommand{\Godpage}[1]{}
+\newcommand{\pejoheshTitle}[1]{}
+\newcommand{\lshortTitle}[2]{}
+\newcommand{\presTitle}{}
+
+%% OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+%%% دستوراتی برای محیط itemize برای حل مشکل قرار دادن bullet و circle برای زبان فارسی. 
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+
+%%% اضافه کردن نماد استقلال به علایم ریاضی
+\newcommand{\Perp}{\perp \! \! \! \perp}
+\newcommand{\independent}{\protect\mathpalette{\protect\independenT}{\perp}} \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+

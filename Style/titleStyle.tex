@@ -1,0 +1,351 @@
+%%% Data: 2013/04/16    Time: 23:46:34 
+
+%%  برگه نخست در مستند را ایجاد می‌کند. در این برگه تنها نام پروردگار
+%% ذکر می‌شود. برای ایجاد نام پرودگار یک تصویر استفاده می‌شود به نام god.ps
+%% که باید در پوشه image کنار پرونده اصلی مستند قرار گرفته شده باشد.
+\DeclareDocumentCommand{\Godpage}{g g}{	
+	\thispagestyle{empty}
+	\begin{center}
+	\IfValueTF{#1}{
+		\IfValueTF{#2}{
+			\includegraphics[width=#2\textwidth]{#1}
+		}{%%%
+			\includegraphics[width=.7\textwidth]{#1}
+		}%%%
+	}{%%
+		\IfValueTF{#2}{
+			\includegraphics[width=#2\textwidth]{god}
+		}{%%%
+			\includegraphics[width=.7\textwidth]{god}
+		}%%%
+	}%%
+	\end{center}
+	\newpage
+}%
+
+
+
+%%% تعریف یکسری فونت مورد استفاده اختصاصی در صفحه عنوان
+\defpersianfont\logofontR[Scale=1.2]{Zar}
+\defpersianfont\typefontR[Scale=1.8]{Zar}
+\defpersianfont\titlefontR[Scale=2]{Titr}
+\defpersianfont\datafontR[Scale=1.4]{B Zar}
+\defpersianfont\proposalFont[Scale=1]{Titr}
+\defpersianfont\InstituteFont[Scale=.8]{XM Traffic}
+\defpersianfont\godFont[Scale=.9]{XM Traffic}
+
+
+\makeatletter
+\newcommand{\pejoheshStyle}{
+%	%% این یک استایل ساده و رسمی.
+%	%% توسط این دستور تمامی footer و header های صفحه را حذف می‌کنیم. 
+	\thispagestyle{empty}
+	\begin{center}
+		\includegraphics[width=\@logoScale]{\@logofile}\\*[10pt]
+		\logofontR{\@institute}\medskip
+		\vspace*{\stretch{2}}
+		\typefontR\textbf{\@type}\\*[35pt]
+		\titlefontR\textbf{\@title}\medskip
+		\vspace*{\stretch{2}}
+		\datafontR{\@author}\medskip
+		\vspace*{\stretch{2}}
+		\datafontR{\@date}
+		\vspace*{\stretch{1}}
+	\end{center}
+	\clearpage
+} %
+
+\newcommand{\lshortStyle}{
+	%% استایلی شبیه به استایل شروع کتاب "مقدمه‌ای نه چندان کوتاه بر Latex"
+	\definecolor{authorcol}{rgb}{.51,0,.51}
+	\begin{flushleft}
+	\vspace*{\stretch{.1}}
+	\begin{flushright}\includegraphics[width=\@logoScale]{\@logofile}\end{flushright}
+	\newlength{\centeroffset}
+	\setlength{\centeroffset}{-0.5\oddsidemargin}
+	\addtolength{\centeroffset}{0.5\evensidemargin}
+	\addtolength{\textwidth}{-\centeroffset}
+	%% توسط این دستور تمامی footer و header های صفحه را حذف می‌کنیم. 
+	\thispagestyle{empty}
+	
+	\vspace*{\stretch{2}}
+	
+	\noindent\hspace*{\centeroffset}\makebox[0pt][l]{
+		\begin{minipage}{\textwidth}
+			\flushleft
+			{ \titlefont\textcolor{magenta}\@title \\*[10pt]}
+			\noindent\color{gray}{\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
+			\hfill{\farsifontsayeh\large\@type }}
+		\end{minipage}
+	}%
+	
+	\vspace{\stretch{2}}
+	
+	\noindent\hspace*{\centeroffset}\makebox[0pt][l]{
+		\begin{minipage}{\textwidth}
+			{\flushleft\textcolor{authorcol}{\bfseries\@author\\*[5pt]}}
+			{\flushleft\textcolor{authorcol}{\bfseries\@supervisor\\*[5pt]}}
+			{\flushleft\textcolor{authorcol}{\bfseries\@date}\\}
+		\end{minipage}
+	}%
+		
+	\vspace{\stretch{1.5}}
+
+	\end{flushleft}
+	\clearpage
+}%
+	
+\newcommand{\presStyle}{
+%%% ایجاد عنوان برای فایل ارایه (Presentation) 
+%%% توسط این دستور تمامی footer و header های صفحه را حذف می‌کنیم. 
+	\thispagestyle{empty}
+
+	\begin{titlepage}
+		\distance{1}
+		\centering
+		\textcolor{Green}{\huge\titr{\@title}}\\
+		\distance{2}
+		\textcolor{Magenta}{\textbf{\@session}}\\*[14pt]
+		\textcolor{Magenta}{\small\textbf{\@date}}
+		\distance{1}
+	\end{titlepage}
+	\clearpage\newpage
+	\pagestyle{empty}
+	\pagenumbering{arabic}
+}%
+	
+\newcommand{\presStyleLogo}{
+%%% ایجاد عنوان برای فایل ارایه (Presentation) 
+%%% توسط این دستور تمامی footer و header های صفحه را حذف می‌کنیم. 
+	\thispagestyle{empty}
+
+	\begin{titlepage}
+	\begin{table}[H]
+		\begin{tabular}{rl}
+		\includegraphics{logo} & \includegraphics{logo2} \\
+		\end{tabular}
+
+			\end{table}
+		\distance{1}
+		\centering
+		\textcolor{Green}{\huge\titr{\@title}}\\
+		\distance{2}
+		\textcolor{Magenta}{\textbf{\@session}}\\*[14pt]
+		\textcolor{Magenta}{\small\textbf{\@date}}
+		\distance{1}
+	\end{titlepage}
+	\clearpage\newpage
+	\pagestyle{empty}
+	\pagenumbering{arabic}
+}%
+	
+	
+\newcommand{\techStyle}{
+	\thispagestyle{empty}
+	\centering
+	\godFont\textbf{باسمعه تعالی}\\
+	\vspace*{\stretch{1}}
+	 {\includegraphics[width=\@logoScale]{\@logofile}}\\
+	\InstituteFont{\@institute}\\
+% 	\rule{0.25\textwidth}{.5pt}\\
+ 	\InstituteFont{\@group}\\
+	\vspace*{\stretch{1}}
+	\proposalFont\textbf{\@type}\\*[8pt]
+	\proposalFont\textbf{\@title}\\
+	\vspace*{\stretch{1}}
+	\raggedleft\tableFont\textbf{اطلاعات کلي:}\\
+	\begin{table}
+	\renewcommand{\arraystretch}{1.2}
+	%\setlength{\arrayrulewidth}{1pt}
+	\begin{tabular}{Im{0.3\textwidth}|m{0.5\textwidth}I}\whline
+	\tableFont\textbf{عنوان پروژه:}&\tableFont\textbf{\@title}\\\hline
+	\tableFont\textbf{نام کارفرما:}&\tableFont\textbf{\@supervisor}\\\hline
+	\tableFont\textbf{نام پيشنهاد دهنده:}&\tableFont\textbf{\@author}\\\hline
+	\tableFont\textbf{گروه تخصصي :}&\tableFont\textbf{\@community}\\\hline
+	\tableFont\textbf{مدير پروژه:}&\tableFont\textbf{\@projectManager}\\\hline
+	\tableFont\textbf{تاريخ ارائه:}&\tableFont\textbf{\@date}\\\hline
+	\tableFont\textbf{شماره نسخه:}&\tableFont\textbf{ \@version.\@update}\\
+	\whline
+	\end{tabular}
+	\end{table}
+	\vspace*{\stretch{1}}
+	
+%	\raggedleft\tableFont\textbf{مشخصات مجريان پروژه: }\\
+%	\begin{table}
+%	\centering
+%	\renewcommand{\arraystretch}{1.2}
+%	%\setlength{\arrayrulewidth}{1pt}
+%	\begin{tabular}{Im{0.2\textwidth}|m{0.2\textwidth}|m{0.2\textwidth}|m{0.2\textwidth}I}\whline
+%	\tableFont\textbf{نام}&\tableFont\textbf{مدرک تحصيلي}&\tableFont\textbf{گرايش}&\tableFont\textbf{مسئوليت}\\\hline
+%	\tableFont\textbf{}&\tableFont\textbf{}&\tableFont\textbf{}&\tableFont\textbf{}\\\hline
+%	\tableFont\textbf{}&\tableFont\textbf{}&\tableFont\textbf{}&\tableFont\textbf{}\\\hline
+%	\tableFont\textbf{}&\tableFont\textbf{}&\tableFont\textbf{}&\tableFont\textbf{}\\\whline
+%	\end{tabular}
+%	\end{table}
+	\vspace*{\stretch{1}}
+	\begin{table}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{tabular}{Im{0.2\textwidth}|m{0.2\textwidth}I}\whline
+	\tableFont\textbf{مدت زمان اجرا:}&\tableFont\textbf{\@executionTime}\\\hline
+	\tableFont\textbf{تاريخ شروع:}&\tableFont\textbf{\@startData}\\\hline
+	\tableFont\textbf{تاريخ پايان فاز اول:}&\tableFont\textbf{\@stopData}\\\whline
+	\end{tabular}
+	\end{table}
+	\vspace*{\stretch{1}}
+	\clearpage
+}%
+
+\newcommand{\thesisStyleOO}{
+	\ignorespaces
+	\begin{center}
+	\thispagestyle{empty}
+	\begin{table}
+		\begin{tabular}{ccc}
+			\includegraphics[width=.2\textwidth]{logo}
+			&
+			\begin{minipage}{0.55\linewidth}
+				\vskip 0.9cm
+				\begin{center}
+					\typefontR{\@institute}\\* [0.4cm]
+					\@faculity\\ [0.4cm]
+					\@group \\*[1cm]
+				\end{center}
+			\end{minipage}
+			&
+			\includegraphics[width=.2\textwidth]{logo2}
+		\end{tabular}
+	\end{table}
+	\vspace*{\stretch{1}}
+	\textbf{\LARGE{\@title}}
+	\vspace*{\stretch{1}}
+	\vskip 1.2cm
+	\LARGE{
+	نگارش:}
+	 \\ [0.4cm] \Large{\@author}
+	\vskip 1.5cm
+	\LARGE{
+	استاد راهنما:}
+	 \\ [0.4cm] \Large{\@supervisor}
+%	\vskip 1.5cm
+%	\LARGE{
+%	استاد مشاور:}
+%	 \\ [0.4cm] \Large{\@adviser}
+	\vskip 2cm
+	%\@comment \\* [0.3cm]
+	\large{\@date}
+	\end{center}
+	\clearpage
+}%
+\newcommand{\thesisStyleO}{
+	\ignorespaces
+	\begin{center}
+	\thispagestyle{empty}
+	\includegraphics[width=\@logoScale]{\@logofile}$ $\\* [0.3cm]
+	{{\@institute}$ $\\* [-1mm]
+	{\@faculity}$ $\\* [-1mm]
+	{\@group} $ $\\* [-1mm]}
+	\vspace*{\stretch{1}}
+	{\textbf{\LARGE{\@title}}}
+	\vspace*{\stretch{1}}
+	\vskip 2cm
+	{\Large
+	نگارش:
+	 \\ [0.2cm] \@author}
+	\vskip 1.5cm
+	{\Large
+	استاد راهنما:
+	 \\ [0.2cm] \@supervisor}
+	\vskip 1.5cm
+	{\Large
+	استاد مشاور:
+	 $ $\\ [0.2cm] \@adviser}
+	\vskip 2cm
+	 {\@comment $ $\\* [0.3cm]}
+	\large{\@date}
+	\end{center}
+	\clearpage
+}%
+\newcommand{\proposalStyle}{
+	{\thispagestyle{empty}
+	\centering
+	{\godFont\textbf{باسمعه تعالی}}\\
+	\vspace*{\stretch{.5}}
+%	 \IfFileExists{logo.jpg}
+	 {\includegraphics[width=0.15\textwidth]{logo}} \\
+	{\InstituteFont{\@institute}}\\*[-2pt]
+ 	{\InstituteFont{\@group}}\\*[12pt]
+	\vspace*{\stretch{3}}
+	{\large\proposalFont\textbf{\@type}}\\*[19pt]
+	{\Huge\proposalFont\textbf{\@title}}\\
+	\vspace*{\stretch{3}}
+
+	\raggedleft\tablefont\textbf{اطلاعات کلي:}\\
+	\begin{table}[H]
+	\renewcommand{\arraystretch}{1.2}
+	%\setlength{\arrayrulewidth}{1pt}
+	\begin{tabular}{Im{0.3\textwidth}|m{0.5\textwidth}I}\whline
+	\tablefont\textbf{عنوان پروژه:}        &\tablefont\textbf{\@title}\\\hline
+	\tablefont\textbf{نام کارفرما:}         &\tablefont\textbf{\@supervisor}\\\hline
+	\tablefont\textbf{نام پيشنهاد دهنده:} &\tablefont\textbf{\@author}\\\hline
+	\tablefont\textbf{گروه تخصصي :}   &\tablefont\textbf{\@community}\\\hline
+	\tablefont\textbf{مدير پروژه:}          &\tablefont\textbf{\@projectManager}\\\hline
+	\tablefont\textbf{تاريخ ارائه:}          &\tablefont\textbf{\@date}\\\hline
+	\tablefont\textbf{شماره نسخه:}       &\tablefont\textbf{ \@version-\@update}\\
+	\whline
+	\end{tabular}
+	\end{table}
+	\vspace*{\stretch{1}}
+	
+	\raggedleft\tablefont\textbf{مشخصات مجريان پروژه: }\\
+	\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.2}
+	%\setlength{\arrayrulewidth}{1pt}
+	\begin{tabular}{Im{0.2\textwidth}|m{0.2\textwidth}|m{0.2\textwidth}|m{0.2\textwidth}I}\whline
+	\tablefont\textbf{نام و نام‌خانوادگی}&\tablefont\textbf{مدرک تحصيلي}&\tablefont\textbf{گرايش}&\tablefont\textbf{مسئوليت}\\\hline
+	\fulltable\\
+        \whline
+	\end{tabular}
+	\end{table}
+	\vspace*{\stretch{1}}
+	\begin{table}[H]
+	\renewcommand{\arraystretch}{1.2}
+	\begin{tabular}{Im{0.2\textwidth}|m{0.2\textwidth}I}\whline
+	\tablefont\textbf{مدت زمان اجرا:}&\tablefont\textbf{\@executionTime}\\\hline
+	\tablefont\textbf{تاريخ شروع:}&\tablefont\textbf{\@startData}\\\hline
+	\tablefont\textbf{تاريخ پايان فاز اول:}&\tablefont\textbf{\@stopData}\\\whline
+	\end{tabular}
+	\end{table}
+	\vspace*{\stretch{1}}
+	\clearpage}
+}%
+
+
+\let\oldmaketitle\maketitle
+\renewcommand{\maketitle}{
+	\ifthenelse{\equal{\@titleStyle}{presentation}}{\presStyle}{
+		\ifthenelse{\equal{\@titleStyle}{pejohesh}}{\pejoheshStyle}{
+			\ifthenelse{\equal{\@titleStyle}{lshort}}{\lshortStyle}{
+				\ifthenelse{\equal{\@titleStyle}{proposal}}{\proposalStyle}{
+					\ifthenelse{\equal{\@titleStyle}{thesis}}{\thesisStyleOO}{
+						\ifthenelse{\equal{\@titleStyle}{proposalStyle}}{\proposalStyle}{
+							\ifthenelse{\equal{\@titleStyle}{presStyleLogo}}{\presStyleLogo}{
+								\oldmaketitle
+							}
+						} %L6
+					} %L5
+				}%L4
+			}%L3
+		}%L2
+	}%L1
+}%
+
+
+\makeatother
+
+
+
+
+
+
+

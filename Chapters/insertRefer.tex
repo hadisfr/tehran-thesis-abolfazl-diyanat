@@ -1,0 +1,28 @@
+\chapter{وارد کردن مراجع}
+برای وارد کردن مراجع در پایان‌نامه بهترین روش استفاده از \lr{bibtex} است. 
+
+
+برای مثال مرجع {\cite{Mackey2005_Effects}} در مورد شبکه .... . و این هم مرجع دوم {\cite{Kappler2009}} 
+
+و سپس مرجع سوم {\cite{Kappler2009}}
+
+برای آوردن مراجع باید مراحل زیر را انجام دهید.
+\begin{itemize}
+\begin{LTRitems}
+\item
+\verb+ xelatex -interaction=nonstopmode -synctex=-1 %.tex+
+\item
+\verb+ bibtex  % +
+\item
+\verb+ xelatex -interaction=nonstopmode -synctex=-1 %.tex+
+\item
+\verb+ xelatex -interaction=nonstopmode -synctex=-1 %.tex+
+\end{LTRitems}
+\end{itemize}
+اگر از ویرایشگر {\lr{Texmaker}} استفاده می‌کنید، دستور اولی، سومی و چهارمی همان {\lr{Quick Build}} است. یعنی اگر دکمه {\lr{Quick Build}} را بزنید، انگار دستور مورد اشاره را اجرا کرده اید. در مورد دستور دوم، در {\lr{Texmaker}} همان دستور {\lr{bibtex}} است. در اکثر ویرایشگرها چنین چیزی وجود دارد.  
+
+% انواع دیگر استایل ها در راهنمای persian-bib آمده است. 
+
+
+
+

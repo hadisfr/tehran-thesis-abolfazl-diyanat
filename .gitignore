@@ -186,6 +186,9 @@ TSWLatexianTemp*
 # BidiTexmaker
 *.ptd
 
+*.ntn
+
+
 ## OSX
 .DS_Store
 .AppleDouble

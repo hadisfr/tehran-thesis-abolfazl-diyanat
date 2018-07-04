@@ -1,0 +1,8 @@
+image: blang/latex
+
+build:
+  script:
+    ./build.sh
+  artifacts:
+    paths:
+      - "MyThesis.pdf"

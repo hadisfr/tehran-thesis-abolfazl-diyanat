@@ -3,7 +3,7 @@ image: blang/latex
 build:
   script:
     - cat /etc/fonts/fonts.conf
-    - apt-get update && apt-get install fonts-linuxlibertine ttf-mscorefonts-installer
+    - apt-get -y update && apt-get -y install fonts-linuxlibertine ttf-mscorefonts-installer
     - mkdir -p /usr/local/share/fonts/truetype
     - cp -r ./fonts/* /usr/local/share/fonts/truetype/
     - fc-cache -f -v

@@ -7,6 +7,7 @@ build:
     - mkdir -p /usr/local/share/fonts/truetype
     - cp -r ./fonts/* /usr/local/share/fonts/truetype/
     - fc-cache -f -v
+    - sed -i 's/Times New Roman/Linux Libertine/g' /usr/local/texlive/2017/texmf-dist/tex/xelatex/xepersian/soul-xepersian.def
     - ./build.sh
   artifacts:
     paths:

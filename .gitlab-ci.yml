@@ -3,9 +3,9 @@ image: blang/latex
 build:
   script:
     - cat /etc/fonts/fonts.conf
-    - sudo apt-get update && sudo apt-get install fonts-linuxlibertine
-    - mkdir -p ~/.fonts/truetype
-    - cp -r ./fonts/* ~/.fonts/truetype/
+    - apt-get update && apt-get install fonts-linuxlibertine
+    - mkdir -p /usr/local/share/fonts/truetype
+    - cp -r ./fonts/* /usr/local/share/fonts/truetype/
     - sudo fc-cache -f -v
     - ./build.sh
   artifacts:

@@ -1,3 +1,7 @@
+[![pipeline status](https://gitlab.com/hadi_sfr/tehran-thesis-abolfazl-diyanat/badges/master/pipeline.svg)](https://gitlab.com/hadi_sfr/tehran-thesis-abolfazl-diyanat/commits/master)
+
+<div dir="rtl">
+
 پاسخ: ابوالفضل دیانت
 ## [الگوی مناسب برای دانشگاه تهران](http://www.parsilatex.com/forum/SMF/index.php?topic=6023.msg30845#msg30845)
 
@@ -16,6 +20,8 @@
 ### نکات
 1. حتما Texlive 2013 نصب کنید. آن را حتما بروز کنید.  
 2. فونت‌های زیر را نصب کنید.  
+
+<div dir="ltr">
 
 ```tex
 \settextfont[Scale=1.3]{B Nazanin}
@@ -37,4 +43,9 @@
 \defpersianfont\farsifontsayeh[Scale=1.5]{XB Kayhan Sayeh}
 \defpersianfont\titlefont[Scale=2.4]{Titr}
 ```
+
+</div>
+
 با تشکر
+
+</div>

@@ -174,7 +174,7 @@
 
 
 \makeatletter
-\defpersianfont\chaptertitlefont[Scale=1.6]{B Titr}
+\defpersianfont\chaptertitlefont[Scale=1.6]{Titr}
 
 \newcommand\mycustomraggedright{%
  \if@RTL\raggedleft%

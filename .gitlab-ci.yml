@@ -2,7 +2,12 @@ image: blang/latex
 
 build:
   script:
-    ./build.sh
+    - cat /etc/fonts/fonts.conf
+    - sudo apt-get update && sudo apt-get install fonts-linuxlibertine
+    - mkdir -p ~/.fonts/truetype
+    - cp -r ./fonts/* ~/.fonts/truetype/
+    - sudo fc-cache -f -v
+    - ./build.sh
   artifacts:
     paths:
       - "MyThesis.pdf"

@@ -183,7 +183,7 @@
 \defpersianfont\nastaliq[Scale=2]{IranNastaliq}
 \defpersianfont\farsifontshafigh[Scale=1.3]{XB Shafigh}
 \defpersianfont\titrt[Scale=1]{XB Titre}
-\defpersianfont\traffict[Scale=1]{XB Traffic}
+\defpersianfont\traffict[Scale=1]{XM Traffic}
 \defpersianfont\farsifontsayeh[Scale=1.5]{XB Kayhan Sayeh}
 \defpersianfont\titlefont[Scale=2.4]{Titr}
 \defpersianfont\godFont[Scale=1]{B Nazanin}

@@ -20,15 +20,15 @@
 2. ‫فونت‌های زیر را نصب کنید.  
 
 ```tex
-\settextfont[Scale=1.3]{B Nazanin}
+\settextfont[Scale=1.3]{XB Kayhan}
 \setlatintextfont[Scale=1]{Linux Libertine}
 
-\defpersianfont\tablefont[Scale=.8]{B Nazanin}
-\defpersianfont\pejoheshfont[Scale=1.4]{Titr}
+\defpersianfont\tablefont[Scale=.8]{XB Kayhan}
+\defpersianfont\pejoheshfont[Scale=1.4]{XB Titre}
 %% ‫فونت اسم گروه XB Titre
 \defpersianfont\groupfont[Scale=1.4]{XB Zar}
 %% ‫فونت عنوان گزارش
-\defpersianfont\titlefont[Scale=2.4]{Titr}
+\defpersianfont\titlefont[Scale=2.4]{XB Titre}
 %% ‫فونت نسخه گزارش
 \defpersianfont\versionfont[Scale=1.6]{B Mitra}
 \defpersianfont\payanFont[Scale=1.8]{XB Yas}
@@ -37,7 +37,7 @@
 \defpersianfont\titrt[Scale=1]{XB Titre}
 \defpersianfont\traffict[Scale=1]{XM Traffic}
 \defpersianfont\farsifontsayeh[Scale=1.5]{XB Kayhan Sayeh}
-\defpersianfont\titlefont[Scale=2.4]{Titr}
+\defpersianfont\titlefont[Scale=2.4]{XB Titre}
 ```
 
 ‫با تشکر

@@ -155,7 +155,7 @@
 %%% تعریف یک دستور به عنوان فونت پیش فرض
 \renewcommand{\defaultFont}{
 	%%%  با دستور زیر می توانید فونتی مخصوص عبارات فارسی تعیین کنید:
-	\settextfont[Scale=1.3]{B Nazanin} 
+	\settextfont[Scale=1.3]{XB Kayhan} 
 	%%\settextfont[Scale=1.2]{XB Niloofar}
 	%%% شما با دستور زیر بعد از فراخوانی بسته xepersian می توانید فونت انگلیسی را تعیین کنید
 	%%% دقت کنید که عبارات انگلیسی شما باید در دستور \lr{} قرار گیرد تا xepersian بتواند بفمهد که این عبارات انگلیسی است
@@ -172,25 +172,25 @@
 
 %% تعریف یکسری فونت برای قسمت عنوان پروژه و ما بقی قسمت ها فونت قسمت "موسسه " در صفحه عنوان
 
-\defpersianfont\pejoheshfont[Scale=1.4]{Titr}
-%%فونت اسم گروه XB Titre
-\defpersianfont\groupfont[Scale=1.4]{XB Zar}
-%%% فونت عنوان گزارش
-\defpersianfont\titlefont[Scale=2.4]{Titr}
-%% فونت نسخه گزارش
-\defpersianfont\versionfont[Scale=1.6]{B Mitra}
-\defpersianfont\payanFont[Scale=1.8]{XB Yas}
-\defpersianfont\nastaliq[Scale=2]{IranNastaliq}
-\defpersianfont\farsifontshafigh[Scale=1.3]{XB Shafigh}
-\defpersianfont\titrt[Scale=1]{XB Titre}
-\defpersianfont\traffict[Scale=1]{XM Traffic}
-\defpersianfont\farsifontsayeh[Scale=1.5]{XB Kayhan Sayeh}
-\defpersianfont\titlefont[Scale=2.4]{Titr}
-\defpersianfont\godFont[Scale=1]{B Nazanin}
-\defpersianfont\titleFontEn[Scale=1]{XM Traffic}
-%% فونت‌های مورد نیاز برای صفحه شروع 
-%\defpersianfont\tablefont[Scale=.8]{XM Traffic}
-\deflatinfont\tableFontEn[Scale=.9]{XB Shafigh}
+% \defpersianfont\pejoheshfont[Scale=1.4]{XB Titre}
+% %%فونت اسم گروه XB Titre
+% \defpersianfont\groupfont[Scale=1.4]{XB Zar}
+% %%% فونت عنوان گزارش
+% \defpersianfont\titlefont[Scale=2.4]{XB Titre}
+% %% فونت نسخه گزارش
+% \defpersianfont\versionfont[Scale=1.6]{B Mitra}
+% \defpersianfont\payanFont[Scale=1.8]{XB Yas}
+% \defpersianfont\nastaliq[Scale=2]{IranNastaliq}
+% \defpersianfont\farsifontshafigh[Scale=1.3]{XB Shafigh}
+% \defpersianfont\titrt[Scale=1]{XB Titre}
+% \defpersianfont\traffict[Scale=1]{XM Traffic}
+% \defpersianfont\farsifontsayeh[Scale=1.5]{XB Kayhan Sayeh}
+% \defpersianfont\titlefont[Scale=2.4]{XB Titre}
+% \defpersianfont\godFont[Scale=1]{XB Kayhan}
+% \defpersianfont\titleFontEn[Scale=1]{XM Traffic}
+% %% فونت‌های مورد نیاز برای صفحه شروع 
+% %\defpersianfont\tablefont[Scale=.8]{XM Traffic}
+% \deflatinfont\tableFontEn[Scale=.9]{XB Shafigh}
 %%  با استفاده از این دستور می‌توان فونت و فارسی و یا انگلیسی بودن اعداد در فرمول‌ها را به حالت اولیه (یعنی پیش‌فرض لاتک) برگرداند.
 \DefaultMathsDigits
 
